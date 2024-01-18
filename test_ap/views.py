@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import time
+from . tasks import wait_clicking
 
 
 def index(request):
@@ -7,9 +8,7 @@ def index(request):
 
 
 def get_click(request):
-    time.sleep(10)
     text = 'Кнопка нажата'
-    context = {
-        'text': text,
-    }
+    context = {'text': text}
+    wait_clicking.delay()
     return render(request, 'index.html', context=context)

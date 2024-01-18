@@ -2,4 +2,4 @@
 
 Запуск воркера
 
-```python -m celery -A django_test worker```
+```celery -A django_test worker```
